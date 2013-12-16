@@ -32,6 +32,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+#gemas para desarrollo
+#gema de autenticancion.
+gem 'devise'
+#gema de para una estructura simple de formularios
+gem 'simple_form'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
