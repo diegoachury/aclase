@@ -1,0 +1,24 @@
+<h2>Registrar</h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  	<%= f.input :first_name, :label => 'Nombres' %>
+  	<%= f.input :last_name, :label => 'Apellidos'  %>
+  	<%= f.input :plan,  :collection => [['Mensual', 'Mensual'], ['Anual', 'Anual']], :as => :radio_buttons %>
+    <%= f.input :activate, :as => :boolean, input_html: {checked:   0} %>
+  	<%= f.input :date_i, :label => 'fecha de inicio' %>
+  	<%= f.input :date_f, :label => 'fecha de finalizacion' %>
+  	<%= f.input :description, :label => 'Descripcion' %>
+    <%= f.input :email, :required => true, :autofocus => true , :label => 'Correo Electronico'%>
+    <%= f.input :password, :required => true, :label => 'Contraseña' %>
+    <%= f.input :password_confirmation, :required => true, :label => 'confirmar constraseña' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "users/shared/links" %>
