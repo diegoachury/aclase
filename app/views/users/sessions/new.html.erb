@@ -1,15 +1,105 @@
-<h2>Sign sdsd in</h2>
+<style>
+html, body {
+	margin: 0;
+    padding: 0;
+    height:100%;
+    background: #1a90bc;
+	background-color: #146e8f;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(-54deg, #1a90bc, #146e8f);
+	background-image: -webkit-linear-gradient(-54deg, #1a90bc, #146e8f);
+	background-image: -o-linear-gradient(-54deg, #1a90bc, #146e8f);
+	background-image: linear-gradient(-54deg, #1a90bc, #146e8f);
+}
+#acceder{
+	padding-top: 15%;
+}
+.form-signin {
+	max-width: 380px;
+    padding: 19px 29px 29px;
+    margin: 0 auto 20px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+       -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            box-shadow: 0 1px 2px rgba(0,0,0,.05);
+        }
+        .form-signin .form-signin-heading,
+        .form-signin .checkbox {
+        	margin-bottom: 10px;
+        }
+        .form-signin input[type="text"],
+        .form-signin input[type="password"] {
+        	font-size: 16px;
+	        height: auto;
+	        margin-bottom: 15px;
+	        padding: 7px 9px;
+	        }
+h2{
+	color: #1abc9c;
+}
+input.text, input.email, input.password, textarea.form-element, input[type='text'], input[type='email'], input[type='password'] {
+	background: #e6e6e6;
+	border-color: transparent;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 16px;
+	height: auto;
+	margin: 0;
+	outline: 0;
+	padding: 8px;
+	width: 92%;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+}
+label{
+	color:#c6c6c6;
+}
+.btn-custom {
+  background-color: hsl(157, 78%, 41%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#20e398", endColorstr="#17ba7b");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#20e398), to(#17ba7b));
+  background-image: -moz-linear-gradient(top, #20e398, #17ba7b);
+  background-image: -ms-linear-gradient(top, #20e398, #17ba7b);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #20e398), color-stop(100%, #17ba7b));
+  background-image: -webkit-linear-gradient(top, #20e398, #17ba7b);
+  background-image: -o-linear-gradient(top, #20e398, #17ba7b);
+  background-image: linear-gradient(#20e398, #17ba7b);
+  border-color: #17ba7b #17ba7b hsl(157, 78%, 38.5%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.16);
+  -webkit-font-smoothing: antialiased;
+}
 
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, :required => false, :autofocus => true %>
-    <%= f.input :password, :required => false %>
-    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
-  </div>
+a{
+	color: #1a90bc;
+	text-decoration: none;
+}
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign in" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</style>
+<%= render 'home/shared/cabezera' %>
+<div id="acceder">
+	<div class=" container">
+		<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+		<div class="form-signin">
+			<h2>Acceder</h2>
+			<%= f.input :email, :required => false, :autofocus => true, :label => 'Correo Electronico' %>
+			<%= f.input :password, :required => false, :label => 'Contraseña' %>
+			<%= f.button :submit, "Iniciar", :class => 'btn-custom btn-large' %><br>
+			<div style=" padding-top:2%;">
+				<%= link_to "¿Cambiar su contraseña?", new_password_path(resource_name) %>
+			</div>
+		</div>
+		<% end %>
+	</div> 
+</div> 
+<%= render 'home/shared/footer' %>

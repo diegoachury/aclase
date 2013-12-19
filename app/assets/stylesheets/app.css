@@ -1,0 +1,102 @@
+
+.titulo{
+	color:#C6C6C6;
+	margin-top: 40%;
+}
+#color_verde{
+	color:#1abc9c;
+}
+#color_azul {
+	color:#1a90bc;
+}
+
+#home-page{
+	padding-top: 95px;
+}
+
+.navbar-inner-azul {
+min-height: 78px;
+background-color: #1a90bc;
+background-image: linear-gradient(to bottom, #1a90bc, #1a90bc);
+border-color: #146e8f;
+}
+.menu{
+	padding:20px 12px 13px 12px !important;
+	margin:auto 0
+}
+
+
+#menu-main .nav-signup,#menu-main .nav-login{
+	margin-top:18px;
+	-webkit-transition:"background 0.5s";
+	-moz-transition:"background 0.5s";
+	-o-transition:"background 0.5s";transition:"background 0.5s";
+	-webkit-backface-visibility:hidden;
+	-webkit-transition:all 1sec;
+	-moz-transition:all 1sec;
+	-o-transition:all 1sec;transition:all 1sec;
+	-webkit-backface-visibility:hidden
+	}
+#menu-main .nav-signup a,#menu-main .nav-login a{
+	padding:12px 12px 13px 12px !important;
+	margin:auto 0
+}
+#menu-main .nav-signup:hover,#menu-main .nav-login:hover{
+	background:#1a90bc;
+	box-shadow:inset 0 -4px 0 #146e8f
+}
+#menu-main .nav-signup{
+	background:#1abc9c;
+	border-radius:10px 0 0 10px;
+	box-shadow:inset 0 -4px 0 #148f77;
+	margin-left:20px
+}
+#menu-main .nav-login{
+	background:#1bc5a3;
+	border-radius:0 10px 10px 0;
+	box-shadow:inset 0 -4px 0 #13866f
+}
+
+.home .navbar-inner .nav>li>a{color:#fff}
+.home .navbar-inner .nav>.menu-home a{background-color:transparent;box-shadow:none;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none}
+
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus {
+  color: #fff;
+  text-decoration: none;
+  -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+     -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+          box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+}
+
+
+ #footer {
+ 	 position: absolute;
+   	 bottom: 0;
+    width: 100%;
+        height: 12%;
+        background-color: #f5f5f5;
+      }
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+      @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+.credit{
+	padding: 20px;
+}
+
+.play-video {
+position: absolute;
+left: 0;
+right: 0;
+top: 0;
+bottom: 0;
+background: rgba(0,0,0,0.2) url("/img/play_video.png") no-repeat center;
+}
