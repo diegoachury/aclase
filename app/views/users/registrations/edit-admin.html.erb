@@ -1,0 +1,87 @@
+<style>
+html, body {
+  margin: 0;
+    padding: 0;
+    height:100%;
+    background: #146e8f;
+}
+#registrar{
+  padding-top: 10%;
+}
+.form-signup {
+  max-width: 60%;
+    padding: 19px 29px 29px;
+    margin: 0 auto 20px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+       -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            box-shadow: 0 1px 2px rgba(0,0,0,.05);
+        }
+        .form-signup .form-signup-heading,
+        .form-signup .checkbox {
+          margin-bottom: 10px;
+        }
+        .form-signup input[type="text"],
+        .form-signup input[type="password"] {
+          font-size: 16px;
+          height: auto;
+          margin-bottom: 15px;
+          padding: 7px 9px;
+          }
+input.text, input.email, input.password, textarea.form-element, input[type='text'], input[type='email'], input[type='password'] {
+  background: #e6e6e6;
+  border-color: transparent;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 8px;
+  width: 92%;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+label{
+  color:#c6c6c6;
+}
+
+</style>
+
+<%= render 'home/shared/cabezera' %>
+<div id="registrar" class="container-fluid ">
+
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-signup">
+      <h2>Registrar</h2>
+    <%= f.input :first_name, :label => 'Nombres' %>
+    <%= f.input :last_name, :label => 'Apellidos'  %>
+    <%= f.input :activate, :as => :boolean, input_html: {checked:   0} %>
+    <%= f.input :date_i, :label => 'fecha de inicio' %>
+    <%= f.input :date_f, :label => 'fecha de finalizacion' %>
+    <%= f.input :description, :label => 'Descripcion' %>
+    <%= f.input :email, :required => true, :autofocus => true , :label => 'Correo Electronico'%>
+    <%= f.input :password, :required => true, :label => 'Contraseña' %>
+    <%= f.input :password_confirmation, :required => true, :label => 'confirmar constraseña' %>
+    <%= f.input :plan,  :collection => [['Mensual', 'Mensual'], ['Anual', 'Anual']], :as => :radio_buttons %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "users/shared/links" %>
+</div>

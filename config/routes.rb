@@ -5,6 +5,9 @@ Aclase::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'home#index'
+   get 'home/precios'
+   get 'home/libreria'
+   get 'home/contacto'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

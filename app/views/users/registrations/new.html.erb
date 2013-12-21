@@ -1,24 +1,145 @@
-<h2>Registrar</h2>
+<style>
+html, body {
+  margin: 0;
+    padding: 0;
+    height:100%;
+    background: #146e8f;
+}
+#registrar{
+  padding-top: 10%;
+}
+.form-signup {
+  max-width: 60%;
+    padding: 19px 29px 29px;
+    margin: 0 auto 20px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+       -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            box-shadow: 0 1px 2px rgba(0,0,0,.05);
+        }
+        .form-signup .form-signup-heading,
+        .form-signup .checkbox {
+          margin-bottom: 10px;
+        }
+        .form-signup input[type="text"],
+        .form-signup input[type="password"] {
+          font-size: 16px;
+          height: auto;
+          margin-bottom: 15px;
+          padding: 7px 9px;
+          }
+input.text, input.email, input.password, textarea.form-element, input[type='text'], input[type='email'], input[type='password'] {
+  background: #e6e6e6;
+  border-color: transparent;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 8px;
+  width: 92%;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+label{
+  color:#c6c6c6;
+}
+h4 .form-step {
+background: #1abc9c;
+color: #fff;
+height: 30px;
+line-height: 30px;
+margin: -2px 15px 0 0;
+position: relative;
+text-align: center;
+text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+width: 30px;
+display: -moz-inline-stack;
+display: inline-block;
+vertical-align: middle;
+zoom: 1;
+-webkit-border-radius: 100px;
+-moz-border-radius: 100px;
+-ms-border-radius: 100px;
+-o-border-radius: 100px;
+border-radius: 100px;
+}
+.info{
+  color: #113644;
+}
+a{
+  color: #1a90bc; 
+}
+
+.btn-custom {
+  background-color: hsl(157, 78%, 41%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#20e398", endColorstr="#17ba7b");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#20e398), to(#17ba7b));
+  background-image: -moz-linear-gradient(top, #20e398, #17ba7b);
+  background-image: -ms-linear-gradient(top, #20e398, #17ba7b);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #20e398), color-stop(100%, #17ba7b));
+  background-image: -webkit-linear-gradient(top, #20e398, #17ba7b);
+  background-image: -o-linear-gradient(top, #20e398, #17ba7b);
+  background-image: linear-gradient(#20e398, #17ba7b);
+  border-color: #17ba7b #17ba7b hsl(157, 78%, 38.5%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.16);
+  -webkit-font-smoothing: antialiased;
+}
+
+</style>
+
+<%= render 'home/shared/cabezera' %>
+<div id="registrar" class="container-fluid ">
+
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-  	<%= f.input :first_name, :label => 'Nombres' %>
-  	<%= f.input :last_name, :label => 'Apellidos'  %>
-  	<%= f.input :plan,  :collection => [['Mensual', 'Mensual'], ['Anual', 'Anual']], :as => :radio_buttons %>
-    <%= f.input :activate, :as => :boolean, input_html: {checked:   0} %>
-  	<%= f.input :date_i, :label => 'fecha de inicio' %>
-  	<%= f.input :date_f, :label => 'fecha de finalizacion' %>
-  	<%= f.input :description, :label => 'Descripcion' %>
-    <%= f.input :email, :required => true, :autofocus => true , :label => 'Correo Electronico'%>
+  <div class="form-signup">
+      <div>
+        <h4> 
+          <span class="form-step">1</span><span class="info"> Tu informacion basica</span>
+        </h4>  
+    </div>  
+    <%= f.input :first_name, :label => 'Nombres', :autofocus => true , :required => true  %>
+    <%= f.input :last_name, :label => 'Apellidos', :required => true  %>
+    <div>
+        <h4> 
+          <span class="form-step">2</span><span class="info"> Tu cuenta para inciar</span>
+        </h4>
+    </div>  
+    <%= f.input :email, :required => true,  :label => 'Correo Electronico'%>
     <%= f.input :password, :required => true, :label => 'Contraseña' %>
-    <%= f.input :password_confirmation, :required => true, :label => 'confirmar constraseña' %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.input :password_confirmation, :required => true, :label => 'Confirmar constraseña' %>
+    <div>
+        <h4> 
+          <span class="form-step">3</span><span class="info"> Selecciona tu plan</span>
+        </h4>
+    </div>  
+    <%= f.input :plan, :label => false, :required => true,  :collection => [['Mes - 55 Mil (COP)', 'Mensual'], ['Año - 550 Mil (COP)', 'Anual']], :as => :radio_buttons %>
+      <div style="padding-top:3%;">
+        <%= f.button :submit, "Unirte", :class => 'btn-custom btn-large' %>
+      </div>
+      <div style="padding-top:3%;">
+      <p class="muted">
+        <small>
+          Se te enviara un correo electronico con los pasos de la forma que puedes realizar tu deposito para activar tu cuenta.<br>
+          Al Hacer clic en unirte estaras deacuerdo con nuestros <a href="">Terminos de Servicio</a> y nuestras <a href="">Politicas de Privacidad.</a>
+        </small>
+      </p>
+    </div>
   </div>
 <% end %>
-
-<%= render "users/shared/links" %>
+</div>
